@@ -8,8 +8,8 @@ const Header = () => {
   return (
     <header className="bg-gradient-to-r from-blue-700 to-blue-900 p-6 shadow-lg animate-fadeIn">
       <div className="container mx-auto flex justify-between items-center">
-        <h1 className="text-4xl text-white font-extrabold tracking-wider flex items-center hover:text-yellow-400 transition duration-300">
-          <Link to="/">hamroBooking.com</Link>
+        <h1 className="text-4xl text-white font-bold tracking-wider flex items-center hover:text-yellow-400 transition duration-300">
+          <Link to="/">hamroBooking.com.np</Link>
           <img
             src="https://upload.wikimedia.org/wikipedia/commons/9/9b/Flag_of_Nepal.svg"
             alt="Nepal Flag"
