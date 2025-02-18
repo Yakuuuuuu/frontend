@@ -1,3 +1,4 @@
+import { useState } from "react"; // Import useState
 import { useForm } from "react-hook-form";
 import { useMutation, useQueryClient } from "react-query";
 import * as apiClient from "../api-client";
@@ -16,11 +17,13 @@ const SignIn = () => {
   const navigate = useNavigate();
   const queryClient = useQueryClient();
   const location = useLocation();
+  const [apiError, setApiError] = useState(false); // Add state for handling API error
 
   const {
     register,
     formState: { errors },
     handleSubmit,
+    setError, // Import setError to manually set errors
   } = useForm<SignInFormData>();
 
   const mutation = useMutation(apiClient.signIn, {
@@ -29,8 +32,18 @@ const SignIn = () => {
       await queryClient.invalidateQueries("validateToken");
       navigate(location.state?.from?.pathname || "/");
     },
-    onError: (error: Error) => {
+    onError: (error: any) => {
       showToast({ message: error.message, type: "ERROR" });
+      setApiError(true); // Set API error to true on failed login
+      // Optionally, set form errors from the server response
+      setError("email", {
+        type: "manual",
+        message: "Invalid credentials", // Customize error message
+      });
+      setError("password", {
+        type: "manual",
+        message: "Invalid credentials", // Customize error message
+      });
     },
   });
 
@@ -67,7 +80,7 @@ const SignIn = () => {
       <input
         type={type}
         className={`w-full px-4 py-2 border ${
-          error ? "border-red-500" : "border-gray-300"
+          (error || apiError) ? "border-red-500" : "border-gray-300"
         } rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all`}
         placeholder={placeholder}
         aria-invalid={error ? "true" : "false"}
