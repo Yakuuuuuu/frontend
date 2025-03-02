@@ -1,21 +1,20 @@
 const Footer = () => {
   return (
-    <footer className="bg-gradient-to-r from-blue-700 to-blue-900 p-10 shadow-inner">
-      <div className="container mx-auto flex justify-between items-center">
-        <h2 className="text-3xl text-white font-extrabold tracking-wider animate-pulse">
-          hamroBooking.com.np
-        </h2>
-        <nav className="text-white font-semibold tracking-wider flex space-x-6">
-          <p className="cursor-pointer hover:underline transition duration-300 ease-in-out transform hover:scale-105">
-            Privacy Policy
-          </p>
-          <p className="cursor-pointer hover:underline transition duration-300 ease-in-out transform hover:scale-105">
-            Terms of Service
-          </p>
-        </nav>
-      </div>
-    </footer>
-  );
-};
+    <div className="bg-blue-600 py-5">
+        <div className="container mx-auto flex flex-col md:flex-row justify-between items-center text-white">
+            <div className="flex flex-col mf:flex-row md:items-center">
+              <span className="text-sm  font-bold tracking-tight">
+                  HamroBooking.com 🛫</span>
+              <span className="block mt-1 md:inline md:ml-4 text-sm">
+                   </span>
+            </div>
+            <div className="text-sm flex gap-4">
+                <span>Privacy Policy</span>
+                <span>Terms of service</span>        
+            </div>
+        </div>
+    </div>
+  )
+}
 
 export default Footer;

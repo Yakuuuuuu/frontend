@@ -1,14 +1,22 @@
 const Hero = () => {
   return (
-    <div className="bg-blue-800 pb-16">
-      <div className="container mx-auto flex flex-col gap-2">
-        <h1 className="text-5xl text-white font-bold">Find your next stay</h1>
-        <p className="text-2xl text-white">
-          Search low prices on hotels for your dream vacation...
-        </p>
+    <div className="bg-yellow-400 pb-16 px-4">
+      <div className="container mx-auto flex flex-col gp-2">
+        <div className="flex items-center">
+          <h1 className="text-xl text-white font-semibold pt-4">
+            get the best hotels
+          </h1>
+          <img src="hotel.png" className="mt-1 ml-2 h-8" />
+        </div>
+        <div className="flex items-center/">
+          <p className="text-white">
+            we take care of you
+          </p>
+          <img src="love.png" className="mt-1 ml-1 h-5" />
+        </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
 export default Hero;

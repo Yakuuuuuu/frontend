@@ -18,100 +18,80 @@ import MyBookings from "./pages/MyBookings";
 import Home from "./pages/Home";
 
 const App = () => {
-  const { isLoggedIn } = useAppContext();
-  return (
-    <Router>
-      <Routes>
-        <Route
-          path="/"
-          element={
+  const { isLoggedIn } = useAppContext()
+
+    return (
+      <Router>
+        <Routes>
+          <Route path="/" element={
             <Layout>
               <Home />
             </Layout>
-          }
-        />
-        <Route
-          path="/search"
-          element={
+            } 
+          />
+          <Route path="/search" element={            
             <Layout>
               <Search />
             </Layout>
-          }
-        />
-        <Route
-          path="/detail/:hotelId"
-          element={
+            } 
+          />
+          <Route path="/detail/:hotelId" element={            
             <Layout>
               <Detail />
             </Layout>
-          }
-        />
-        <Route
-          path="/register"
-          element={
-            <Layout>
-              <Register />
-            </Layout>
-          }
-        />
-        <Route
-          path="/sign-in"
-          element={
+            } 
+          />
+          <Route path="/register" element={
+            <Layout> 
+              <Register /> 
+            </Layout> 
+            }
+          />
+          <Route path="/sign-in" element={
             <Layout>
               <SignIn />
             </Layout>
-          }
-        />
+            } 
+          />
 
-        {isLoggedIn && (
+          {isLoggedIn && (
           <>
-            <Route
-              path="/hotel/:hotelId/booking"
-              element={
-                <Layout>
-                  <Booking />
-                </Layout>
+            <Route path="/hotel/:hotelId/booking" element={
+              <Layout>
+                <Booking />
+              </Layout>
               }
             />
-
-            <Route
-              path="/add-hotel"
-              element={
-                <Layout>
-                  <AddHotel />
-                </Layout>
+          <Route path="/add-hotel" element={
+              <Layout>
+                <AddHotel />
+              </Layout>
               }
             />
-            <Route
-              path="/edit-hotel/:hotelId"
-              element={
-                <Layout>
-                  <EditHotel />
-                </Layout>
+            <Route path="/my-hotels" element={
+              <Layout>
+                <MyHotels />
+              </Layout>
               }
             />
-            <Route
-              path="/my-hotels"
-              element={
-                <Layout>
-                  <MyHotels />
-                </Layout>
+            <Route path="/my-bookings" element={
+              <Layout>
+                <MyBookings />
+              </Layout>
               }
             />
-            <Route
-              path="/my-bookings"
-              element={
-                <Layout>
-                  <MyBookings />
-                </Layout>
+            <Route path="/edit-hotel/:hotelId" element={
+              <Layout>
+                <EditHotel />
+              </Layout>
               }
             />
           </>
-        )}
-        <Route path="*" element={<Navigate to="/" />} />
-      </Routes>
-    </Router>
-  );
-};
+          )}
+          <Route path="*" element={<Navigate to="/"/>} />
+        </Routes>
+      </Router>
+  )
+}
 
-export default App;
+export default App
